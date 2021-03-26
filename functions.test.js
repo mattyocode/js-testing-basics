@@ -1,6 +1,8 @@
 const { TestScheduler } = require('jest');
 const functions = require('./functions');
 
+// 
+
 test('Adds 2 + 2 to equal 4', () => {
   expect(functions.add(2, 2)).toBe(4);
 });
@@ -20,3 +22,12 @@ test('Should be falsy', () => {
 test('Should be truthy', () => {
   expect(functions.checkValue(1)).toBeTruthy();
 })
+
+// toEqual for objects or arrays
+
+test('User should be Matt Oliver', () => {
+  expect(functions.createUser()).toEqual({
+    firstName: 'Matt',
+    lastName: 'Oliver'
+  });
+});
