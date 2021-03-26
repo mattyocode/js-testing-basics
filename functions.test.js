@@ -39,3 +39,18 @@ test('Should be under 1600', () => {
   const load2 = 700;
   expect(load1 + load2).toBeLessThan(1600);
 });
+
+test('Should be over 1600', () => {
+  const load1 = 800;
+  const load2 = 900;
+  expect(load1 + load2).toBeGreaterThan(1600);
+});
+
+// Regex tests
+test('There is no I in team', () => {
+  expect('team').not.toMatch(/I/);
+})
+
+test('There is an I in team', () => {
+  expect('teamI').toMatch(/I/);
+})
