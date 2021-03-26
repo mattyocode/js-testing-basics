@@ -49,14 +49,32 @@ test('Should be over 1600', () => {
 // Regex tests
 test('There is no I in team', () => {
   expect('team').not.toMatch(/I/);
-})
+});
 
 test('There is an I in team', () => {
   expect('teamI').toMatch(/I/);
-})
+});
 
 // Arrays
 test('Admin should be in usernames', () => {
   usernames = ['matt', 'r2d2', 'admin'];
   expect(usernames).toContain('admin');
-})
+});
+
+// Async data tests 
+
+// Promise - requires expect.assertions AND return to work
+test('User fetched name should be Leanne Graham', () => {
+  expect.assertions(1);
+  return functions.fetchUser()
+    .then(data => {
+      expect(data.name).toEqual('Leanne Graham');
+    })
+});
+
+// Async Await
+test('User fetched name should be Leanne Graham', async () => {
+  expect.assertions(1);
+  const data = await functions.fetchUser();
+    expect(data.name).toEqual('Leanne Graham');
+});
