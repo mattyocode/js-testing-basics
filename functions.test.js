@@ -1,7 +1,18 @@
 const { TestScheduler } = require('jest');
 const functions = require('./functions');
 
-// 
+// setup and teardown examples for db connection in testing
+// before each test
+// beforeEach(() => initDatabase());
+// afterEach(() => closeDatabase());
+// before each test run (once)
+// beforeAll(() => initDatabase());
+// afterAll(() => closeDatabase());
+
+// const initDatabase = () => console.log('DB initialised...');
+// const closeDatabase = () => console.log('DB closed...');
+
+// toBe...
 
 test('Adds 2 + 2 to equal 4', () => {
   expect(functions.add(2, 2)).toBe(4);
